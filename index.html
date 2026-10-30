@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ghost Type | Spookathon 2026</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="game-container">
+
+        <h1>GHOST TYPE 👻</h1>
+        <h2 class="subtitle">TYPE FAST OR DIE!</h2>
+
+        <!-- Ghost that approaches the player -->
+        <div class="ghost-container">
+            <div id="ghost">👻</div>
+        </div>
+
+        <!-- Game instructions -->
+        <p id="message">
+            Type the word before the ghost catches you!
+        </p>
+
+        <!-- Word the player must type -->
+        <h2 id="word">ARE YOU READY?</h2>
+
+        <!-- Player input -->
+        <input type="text" id="typing-input" placeholder="Click START GAME to begin" autocomplete="off"
+            spellcheck="false" disabled>
+
+        <!-- Game statistics -->
+        <div class="stats">
+            <p>⏱️ Time: <span id="timer">5</span>s</p>
+            <p>💀 Score: <span id="score">0</span></p>
+        </div>
+
+        <!-- Start button -->
+        <button id="start-btn">START GAME</button>
+
+    </div>
+
+    <!-- Jumpscare screen -->
+
+    <!-- Full-screen horror jumpscare -->
+    <div id="jumpscare" class="hidden">
+        <img src="ghost-jumpscare.png" id="scary-image" alt="Scary ghost">
+
+        <div class="death-screen">
+            <h1>YOU DIED!</h1>
+            <button id="restart-btn">TRY AGAIN</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

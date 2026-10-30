@@ -1,0 +1,209 @@
+/* General page styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle, #252039, #08080d 75%);
+    color: white;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Main game */
+.game-container {
+    width: 90%;
+    max-width: 650px;
+    padding: 35px;
+    border: 2px solid #8b0000;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 35px rgba(255, 0, 0, 0.3);
+}
+
+h1 {
+    color: #ff3333;
+    font-size: 3rem;
+    text-shadow: 0 0 15px red;
+}
+
+.subtitle {
+    color: #aaa;
+    letter-spacing: 4px;
+}
+
+/* Ghost area */
+.ghost-container {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#ghost {
+    font-size: 60px;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 0 20px white);
+}
+
+/* Word to type */
+#word {
+    font-size: 2.5rem;
+    color: #ff5555;
+    letter-spacing: 5px;
+}
+
+/* Typing input */
+#typing-input {
+    width: 90%;
+    padding: 15px;
+    font-size: 1.3rem;
+    text-align: center;
+    background: #151515;
+    color: white;
+    border: 2px solid #ff3333;
+    border-radius: 8px;
+    outline: none;
+}
+
+#typing-input:focus {
+    box-shadow: 0 0 15px red;
+}
+
+/* Timer and score */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+/* Buttons */
+button {
+    padding: 15px 30px;
+    background: #990000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff2222;
+    box-shadow: 0 0 20px red;
+}
+
+/* Jumpscare screen */
+
+/* Full-screen jumpscare */
+#jumpscare {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: black;
+    overflow: hidden;
+}
+
+#jumpscare.hidden {
+    display: none;
+}
+
+#scary-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: ghostAttack 0.22s ease-out forwards;
+}
+
+@keyframes ghostAttack {
+    0% {
+        transform: scale(0.65);
+        filter: brightness(0.4);
+    }
+
+    45% {
+        transform: scale(1.3) rotate(-3deg);
+        filter: brightness(1.5);
+    }
+
+    100% {
+        transform: scale(1.7);
+        filter: brightness(1);
+    }
+}
+
+.death-screen {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#jumpscare.finished .death-screen {
+    display: flex;
+}
+
+#jumpscare.finished #scary-image {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #scary-image {
+        animation: none;
+    }
+}
+
+/* Make the game fit better on screen */
+.game-container {
+    padding: 20px;
+    margin: 20px auto;
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+.subtitle {
+    margin: 10px 0;
+}
+
+.ghost-container {
+    height: 110px;
+}
+
+#word {
+    margin: 15px 0;
+}
+
+.stats {
+    margin: 10px 0;
+}
+
+@media (max-height: 750px) {
+    .ghost-container {
+        height: 85px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+#typing-input:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    border-color: #555;
+}
